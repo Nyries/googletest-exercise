@@ -3,7 +3,10 @@ project(googletest-exercise)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(googletest-exercise main.cpp src/Calculator.cpp)
+set(PROGRAM_SOURCES
+        test/TestInventory.cpp)
+
+add_executable(googletest-exercise main.cpp ${PROGRAM_SOURCES})
 target_include_directories(googletest-exercise PRIVATE hdr)
 
 # Download and unpack googletest at configure time
@@ -39,7 +42,7 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Now simply link against gtest or gtest_main as needed. Eg
-add_executable(test test/TestCalculator.cpp src/Calculator.cpp)
+add_executable(test ${PROGRAM_SOURCES})
 target_link_libraries(test gtest_main gmock_main)
 target_include_directories(test PRIVATE hdr)
 add_test(NAME calculator_test COMMAND test)
