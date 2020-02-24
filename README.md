@@ -27,3 +27,10 @@ Reference: [Adding traces to assertions](https://github.com/google/googletest/bl
 - Associate a list of types with the `TestItem` test suite (e.g Bun, Cheese, etc.)
 
 Reference: [Typed tests](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#typed-tests)
+
+### Exercise 4: In test/TestCalculator.cpp:31
+- Associate a list of types (`int` and `double`) with the `TestCalculator`
+- Write test named `Add` under `TestCalculator` test suite
+- `EXPECT_THAT` call to Calculator's add() is `Eq` to 9
+
+Reference: [Typed tests](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#typed-tests)
