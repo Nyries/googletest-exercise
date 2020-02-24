@@ -40,7 +40,10 @@ set(PROGRAM_SOURCES)
 add_executable(googletest-exercise main.cpp ${PROGRAM_SOURCES})
 target_include_directories(googletest-exercise PRIVATE hdr)
 
-set(TEST_SOURCES test/TestInventory.cpp)
+set(TEST_SOURCES
+        test/TestInventory.cpp
+        test/TestItem.cpp
+        test/TestCalculator.cpp)
 
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(test ${PROGRAM_SOURCES} ${TEST_SOURCES})

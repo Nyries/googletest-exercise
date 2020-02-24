@@ -3,29 +3,32 @@
 
 #include <vector>
 
+#include <Inventory.hpp>
+
 #include <Bun.hpp>
 #include <Cheese.hpp>
-#include <Inventory.hpp>
 #include <Lettuce.hpp>
 #include <Onion.hpp>
 #include <Patty.hpp>
 #include <Tomato.hpp>
 
-TEST(TestInventory, addNothing) {
+TEST(TestInventory, AddNothing) {
   Inventory inventory{};
   EXPECT_TRUE(inventory.get("Bun") == nullptr);
   /*
    * Exercise #1:
-   * - Run this particular test with --gtest_filter
-   * - Replace assertion above with an EXPECT_EQ
+   * - Run this particular test with `--gtest_filter`
+   * - Replace assertion above with an `EXPECT_EQ`
    * - Run again and compare output
-   * - Replace assertion above with an ASSERT_THAT. Clue: Use gMock matcher, "IsTrue"
+   * - Replace assertion above with an `ASSERT_THAT`. Clue: Use gMock matcher,
+   * `IsNull`
    * - Run again and compare output
    * Reference:
-   * https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#asserting-using-gmock-matchers
+   * [Asserting using gmock
+   * matchers](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#asserting-using-gmock-matchers)
    */
 }
-TEST(TestInventory, addVariousItems) {
+TEST(TestInventory, AddVariousItems) {
   Inventory inventory{};
   Item *bun = new Bun();
   Item *patty = new Patty();
@@ -48,10 +51,12 @@ TEST(TestInventory, addVariousItems) {
     /*
      * Exercise #2:
      * - Add scope traces here
-     * - Fix "items" above so test doesn't fail
+     * - Fix `items` above so test doesn't fail
      * Reference:
-     * https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#adding-traces-to-assertions
+     * [Adding traces to
+     * assertions](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#adding-traces-to-assertions)
      */
     EXPECT_TRUE(inventory.get(item->name()) != nullptr);
   }
 }
+
