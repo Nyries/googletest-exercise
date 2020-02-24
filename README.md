@@ -12,7 +12,7 @@ Use this command, `git config --global --edit`, to check.
 - Run this particular test with `--gtest_filter`
 - Replace assertion above with an `EXPECT_EQ`
 - Run again and compare output
-- Replace assertion above with an `ASSERT_THAT`. Clue: Use gMock matcher, `IsTrue`
+- Replace assertion above with an `ASSERT_THAT`. Clue: Use gMock matcher, `IsNull`
 - Run again and compare output
 
 Reference: [Asserting using gmock matchers](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#asserting-using-gmock-matchers)
@@ -22,3 +22,8 @@ Reference: [Asserting using gmock matchers](https://github.com/google/googletest
 - Fix 'items' above so test doesn't fail
 
 Reference: [Adding traces to assertions](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#adding-traces-to-assertions)
+
+### Exercise 3: In test/TestItem.cpp: 23
+- Associate a list of types with the `TestItem` test suite (e.g Bun, Cheese, etc.)
+
+Reference: [Typed tests](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#typed-tests)
