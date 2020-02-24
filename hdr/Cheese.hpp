@@ -3,5 +3,6 @@
 #include <Item.hpp>
 
 class Cheese : public Item {
-  const std::string name() override { return "Cheese" }
+public:
+  const std::string name() override { return "Cheese"; }
 };

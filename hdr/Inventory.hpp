@@ -1,22 +1,34 @@
 #pragma once
 
-#include <vector>
 #include <Item.hpp>
+#include <vector>
 
-class Inventory
-{
+class Inventory {
 public:
-  Item* get(const std::string& name) {
-    for (item : items) {
-      if (item.name == name)
-      {
-        items.erase(item);
-        return item;
+  using Quantity = size_t;
+  Item *get(const std::string &name) {
+    Item *result{nullptr};
+    for (auto it = items.begin(); it != items.end(); it++) {
+      if (it->first->name() == name) {
+        result = it->first;
+        it->second--;
+        if (it->second == 0) {
+          items.erase(it);
+        }
       }
     }
-    return nullptr;
+    return result;
   }
-  void add(const Item &item) { items.add(item) }
+  void add(Item &item) {
+    for (auto it = items.begin(); it != items.end(); it++) {
+      if (it->first->name() == item.name()) {
+        it->second++;
+        return;
+      }
+    }
+    items.emplace(std::make_pair<Item *, Quantity>(&item, 1));
+  }
+
 private:
-  std::vector<Item> items{}
+  std::map<Item *, Quantity> items{};
 };
