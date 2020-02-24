@@ -3,12 +3,6 @@ project(googletest-exercise)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(PROGRAM_SOURCES
-        test/TestInventory.cpp)
-
-add_executable(googletest-exercise main.cpp ${PROGRAM_SOURCES})
-target_include_directories(googletest-exercise PRIVATE hdr)
-
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
@@ -41,8 +35,15 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
     include_directories("${gtest_SOURCE_DIR}/include")
 endif()
 
+set(PROGRAM_SOURCES)
+
+add_executable(googletest-exercise main.cpp ${PROGRAM_SOURCES})
+target_include_directories(googletest-exercise PRIVATE hdr)
+
+set(TEST_SOURCES test/TestInventory.cpp)
+
 # Now simply link against gtest or gtest_main as needed. Eg
-add_executable(test ${PROGRAM_SOURCES})
+add_executable(test ${PROGRAM_SOURCES} ${TEST_SOURCES})
 target_link_libraries(test gtest_main gmock_main)
 target_include_directories(test PRIVATE hdr)
 add_test(NAME calculator_test COMMAND test)

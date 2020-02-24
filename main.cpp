@@ -2,7 +2,6 @@
 #include <iostream>
 
 int main() {
-  Calculator calculator{};
-  std::cout << "calculator.add(4, 2) = " << calculator.add(4, 2);
+  std::cout << "calculator.add(4, 2) = " << Calculator<int>::add(4, 2);
   return 0;
 }
